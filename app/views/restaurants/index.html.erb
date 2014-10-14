@@ -4,3 +4,5 @@ See your favourite restaurants here!
 <% @restaurants.each do |restaurant| %>
 	<li><%= link_to "#{restaurant.name}", restaurant_path(restaurant), id: "#{restaurant.name}" %></li>
 <%end%>
+</ul>
+... or <%= link_to "create a new one!", new_restaurant_path, id: "New restaurant" %>
