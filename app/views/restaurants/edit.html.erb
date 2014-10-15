@@ -1,9 +1,4 @@
 <%= simple_form_for @restaurant do |form| %>
-	<%= form.error_notification %>
-	<%= form.input :name, autofocus: true %>
-	<%= form.input :description %>
-	<%= form.input :address %>
-	<%= form.input :phone %>
-
-	<%= form.button :submit, 'Submit', class: 'submit' %>
+	<%= render 'fields', form: form %>
+	<%= form.button :submit, 'Edit Restaurant', class: 'submit' %>
 <% end %>
