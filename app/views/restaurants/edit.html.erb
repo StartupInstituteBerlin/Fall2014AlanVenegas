@@ -1,17 +1,9 @@
+<%= simple_form_for @restaurant do |form| %>
+	<%= form.error_notification %>
+	<%= form.input :name, autofocus: true %>
+	<%= form.input :description %>
+	<%= form.input :address %>
+	<%= form.input :phone %>
 
-<%= form_for(@restaurant) do |f| %>
-
-	<%= f.label :name %>
-	<%= f.text_field :name %></br>
-
-	<%= f.label :description %>
-	<%= f.text_field :description %></br>
-
-	<%= f.label :address %>
-	<%= f.text_field :address %></br>
-
-	<%= f.label :phone %>
-	<%= f.text_field :phone %>
-	<%= f.submit "Update!" %>
-
-<% end%>
+	<%= form.button :submit, 'Submit', class: 'submit' %>
+<% end %>
