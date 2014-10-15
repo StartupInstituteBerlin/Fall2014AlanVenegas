@@ -1,5 +1,4 @@
 
-<h1><%"#{@restaurant.name}"%></h1>
 <%= form_for(@restaurant) do |f| %>
 
 	<%= f.label :name %>
@@ -13,6 +12,6 @@
 
 	<%= f.label :phone %>
 	<%= f.text_field :phone %>
-	<%= f.submit "Create restaurant!" %>
+	<%= f.submit "Update!" %>
 
 <% end%>
