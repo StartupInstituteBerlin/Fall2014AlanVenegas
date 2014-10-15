@@ -9,6 +9,8 @@
 <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@restaurant.address}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C#{@restaurant.address}", alt:"Map") %>
 
 
+</br>
 <%= link_to "Update", edit_restaurant_path(@restaurant), id: "update restaurant" %>
+</br>
 <%= link_to "Delete", @restaurant, method: :delete, id: "delete restaurant" %>
     
