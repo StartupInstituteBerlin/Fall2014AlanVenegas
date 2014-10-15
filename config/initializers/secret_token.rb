@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-RestaurantApp::Application.config.secret_key_base = '88050ddaac55d5e633a5f18de04351fe39c86661efe2571c1264d2c4b290c0674d8980230d38cac88d958d23ab69d3b1359e802dc6e6643c8148148a8b3a4706'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+SampleApp::Application.config.secret_key_base = secure_token
