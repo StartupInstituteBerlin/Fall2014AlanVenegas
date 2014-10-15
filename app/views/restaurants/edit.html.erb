@@ -1,3 +1,4 @@
+<h1><%=@restaurant.name%></h1>
 <%= simple_form_for @restaurant do |form| %>
 	<%= render 'fields', form: form %>
 	<%= form.button :submit, 'Edit Restaurant', class: 'submit' %>
