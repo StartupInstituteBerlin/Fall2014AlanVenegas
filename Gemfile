@@ -26,10 +26,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Custom gems
 gem 'simple_form'
-
 gem 'haml'
-
 gem 'devise'
 
 group :doc do
