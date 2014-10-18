@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-	#before_action :authenticate_user!
+	before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy]
 	
 	def index
 		@restaurants = Restaurant.all
@@ -14,12 +14,12 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		@restaurant = Restaurant.new(restaurant_params)
+		@restaurant = current_user.restaurants.build(restaurant_params)
 		if @restaurant.save
 			flash[:notice] = "Restaurant created"
 			redirect_to @restaurant
 		else
-			flash[:error] = "Restaurant created"
+			flash[:error] = "Error creating restaurant"
 			redirect_to root_path
 		end
 
@@ -27,14 +27,22 @@ class RestaurantsController < ApplicationController
 
 	def edit
 		@restaurant = Restaurant.find(params[:id])
+		if @restaurant.user != current_user
+			flash[:alert] = "Only the owner can edit a restaurant"
+			redirect_to restaurant_path(@restaurant)
+		end
 	end
 
 	def update
 		@restaurant = Restaurant.find(params[:id])
-
+		if @restaurant.user != current_user
+			flash[:alert] = "Only the owner can edit a restaurant"
+			redirect_to restaurant_path(@restaurant)
+		end
 		if @restaurant.update_attributes(restaurant_params)
 			redirect_to @restaurant
 		else
+			flash[:error] = "Error updating restaurant"
 			redirect_to edit_restaurant_path(@restaurant)
 		end
 
@@ -42,6 +50,11 @@ class RestaurantsController < ApplicationController
 
 	def destroy
 		restaurant = Restaurant.find(params[:id])
+		if restaurant.user != current_user
+			flash[:alert] = "Only the owner can edit a restaurant"
+			redirect_to restaurant_path(restaurant)
+		end
+
 		if restaurant.destroy
 			flash[:notice] = "Restaurant destroyed"
 		end
