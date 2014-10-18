@@ -10,6 +10,7 @@ RSpec.describe Restaurant, :type => :model do
 	it { should respond_to(:description)}
 	it { should respond_to(:address)}
 	it { should respond_to(:phone)}
+  it { should respond_to(:user_id) }
 
 	describe 'when name is not blank' do
 		it { should be_valid }
