@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe Restaurant, :type => :model do
 
 	before {
-		@user = User.create(name: "Some user", email: "some@email.com", password: "holahola", password_confirmation: "holahola")
-		@restaurant = @user.restaurants.build(name: "Some restaurant", description: "Some characteristics",
-																					address: "Somewhere", phone: "555-555-555" )
+		@user = FactoryGirl.create(:user)
+		#@restaurant = @user.restaurants.build(name: "Some restaurant", description: "Some characteristics",
+		#																			address: "Somewhere", phone: "555-555-555" )
+		@restaurant = FactoryGirl.create(:restaurant)
 	}
 
 	#	Restaurant.new(name: "Some restaurant", description: "Some characteristics",
