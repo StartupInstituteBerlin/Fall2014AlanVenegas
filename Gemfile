@@ -31,6 +31,7 @@ gem 'simple_form'
 gem 'haml'
 gem 'devise'
 
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -40,6 +41,7 @@ group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 	gem "rspec-rails"
+	gem 'factory_girl_rails'
 end
 
 
