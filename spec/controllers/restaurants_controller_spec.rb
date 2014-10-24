@@ -69,9 +69,9 @@ RSpec.describe RestaurantsController, :type => :controller do
 			context 'trying to update a restaurant he does not own' do
 				it 'redirects to index' do
 					sign_in @user
-					#put :update, id: @restaurant.id, restaurant: {name: "New name"}
-					#expect(response).to redirect_to(restaurant_path(@restaurant))
-					#expect(request.flash[:alert]).not_to be_nil
+					put :update, id: @restaurant.id, restaurant: {name: "New name"}
+					expect(response).to redirect_to(restaurant_path(@restaurant))
+					expect(request.flash[:alert]).not_to be_nil
 				end
 			end
 		end

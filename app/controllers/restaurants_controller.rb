@@ -38,8 +38,7 @@ class RestaurantsController < ApplicationController
 		if @restaurant.user != current_user
 			flash[:alert] = "Only the owner can edit a restaurant"
 			redirect_to restaurant_path(@restaurant)
-		end
-		if @restaurant.update_attributes(restaurant_params)
+		elsif @restaurant.update_attributes(restaurant_params)
 			redirect_to @restaurant
 		else
 			flash[:error] = "Error updating restaurant"
