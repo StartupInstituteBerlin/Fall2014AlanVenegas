@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'simple_form'
 gem 'haml'
 gem 'devise'
-
+gem 'faker'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
