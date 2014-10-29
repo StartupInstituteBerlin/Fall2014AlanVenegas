@@ -3,10 +3,10 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new(reservation_params)
 		if @reservation.save
 			flash[:notice] = "Reservation created"
-			redirect_to root_path
+			redirect_to @reservation.restaurant
 		else
 			flash[:error] = "Error creating reservation"
-			redirect_to root_path
+			redirect_to @reservation.restaurant
 		end
 	end
 
