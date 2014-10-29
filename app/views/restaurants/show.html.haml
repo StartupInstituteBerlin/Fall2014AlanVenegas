@@ -19,8 +19,19 @@ Owned by:
 	= link_to "Delete", @restaurant, method: :delete, id: "delete restaurant"
 	%hr
 	Reservations:
+	%br
 	- @restaurant.reservations.each do |reservation| 
-		= "Reserved by: #{reservation.email} at #{reservation.date_and_time}"
+		- unless reservation.status.eql?("declined")
+			= "Reserved by: #{reservation.email} at #{reservation.date_and_time}"
+			= simple_form_for reservation do |form|
+				= form.radio_button :status, 'pending'
+				= form.label :status, 'pending', value: 'pending'
+				= form.radio_button :status, 'accepted', value: 'accepted'
+				= form.label :status, 'accepted', value: 'accepted'
+				= form.radio_button :status, 'declined', value: 'declined'
+				= form.label :status, 'declined', value: 'declined'
+				= form.button :submit, 'Update reservation status', class: 'submit'
+			%br
 
 %hr
 Book a table:
