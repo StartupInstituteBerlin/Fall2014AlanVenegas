@@ -20,3 +20,7 @@ Owned by:
 	%br
 	= link_to "Delete", @restaurant, method: :delete, id: "delete restaurant"
     
+Book a table:
+= simple_form_for @reservation do |form|
+	= render 'reservation_fields', form: form
+	= form.button :submit, 'Book', class: 'submit'
