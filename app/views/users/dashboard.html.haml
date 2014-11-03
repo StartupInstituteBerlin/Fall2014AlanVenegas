@@ -1,1 +1,4 @@
-DASHBOARD
+%p Your restaurants are:
+- current_user.restaurants.each do |restaurant|
+	%p= restaurant.name
+
