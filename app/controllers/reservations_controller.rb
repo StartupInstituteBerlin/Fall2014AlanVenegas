@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new(reservation_params)
 		if @reservation.save
 			flash[:notice] = "Reservation created"
+			ReservationMailer.reservation_notification(@reservation).deliver
 			redirect_to root_path
 		else
 			flash[:error] = "Error creating reservation"
