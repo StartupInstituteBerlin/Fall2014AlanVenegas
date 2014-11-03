@@ -18,7 +18,7 @@ RSpec.describe Reservation, :type => :model do
 		before do 
 			@reservation.email = ""
 		end
-		it { is_expected.to be_invalid}
+		it { is_expected.to be_invalid }
 	end
 
 	describe "when date-time is not present" do
