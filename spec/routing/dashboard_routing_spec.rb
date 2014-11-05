@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "routing to dashboard", type: :routing do
-	context "when not logged in" do
+	xcontext "when not logged in" do
 		before(:each) do
 			request.env["devise.mapping"] = Devise.mappings[:user]
 		end

@@ -45,7 +45,6 @@ class RestaurantsController < ApplicationController
 			flash[:error] = "Error updating restaurant"
 			redirect_to edit_restaurant_path(@restaurant)
 		end
-
 	end
 
 	def destroy
