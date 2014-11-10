@@ -37,7 +37,7 @@ RSpec.describe RestaurantsController, :type => :controller do
 					get :edit, id: @restaurant.id
 				end
 				it 'redirects to index' do
-					expect(response).to redirect_to(restaurant_path(@restaurant))
+					expect(response).to redirect_to(root_path)
 				end
 				it 'displays an alert' do
 					expect(request.flash[:alert]).not_to be_nil
@@ -70,7 +70,7 @@ RSpec.describe RestaurantsController, :type => :controller do
 				it 'redirects to index' do
 					sign_in @user
 					put :update, id: @restaurant.id, restaurant: {name: "New name"}
-					expect(response).to redirect_to(restaurant_path(@restaurant))
+					expect(response).to redirect_to(root_path)
 					expect(request.flash[:alert]).not_to be_nil
 				end
 			end

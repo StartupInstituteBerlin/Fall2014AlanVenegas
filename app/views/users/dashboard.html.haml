@@ -1,4 +1,8 @@
-%p Your restaurants are:
+Your restaurants are:
 - current_user.restaurants.each do |restaurant|
-	%p= restaurant.name
+	%ul
+		%li= link_to "#{restaurant.name}", restaurant_path(restaurant), id: "#{restaurant.name}"
 
+
+-if user_signed_in? && current_user.owner? 
+	= link_to "Create a new restaurant!", new_restaurant_path, id: "New restaurant"
