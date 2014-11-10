@@ -3,7 +3,7 @@ RestaurantApp::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  authenticated :user do
+  authenticated :user, lambda {|u| u.role == "admin"} do
     root to: "users#dashboard", as: "authenticated_root"
     # Rails 4 users must specify the 'as' option to give it a unique name
     # root :to => "main#dashboard", :as => "authenticated_root"
