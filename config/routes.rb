@@ -23,7 +23,10 @@ RestaurantApp::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :restaurants
+  resources :restaurants do
+    resources :stars
+  end
+
   resources :reservations, only: [:create, :destroy, :update]
 
 

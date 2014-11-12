@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :restaurants
+  has_many :stars
+  has_many :starred_restaurants, through: :stars, source: :restaurants
 	validates :name, presence: true
-	#validates :email, presence: true
-
+	
 	def owner?
 		self.role == "owner"
 	end

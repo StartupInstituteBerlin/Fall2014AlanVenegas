@@ -1,4 +1,15 @@
-%h1= @restaurant.name
+%h1
+	#{@restaurant.name}
+= "# of stars: #{@restaurant.stars.count}"
+
+- if user_signed_in?
+	- if @star.new_record?
+		= simple_form_for [@restaurant, @star] do |form|
+			= form.button :submit, 'Star', class: 'submit'
+	- else
+		= simple_form_for [@restaurant, @star], method: :delete do |form|
+			= form.button :submit, 'Unstar', class: 'submit'
+
 Owned by:
 = @restaurant.user.name
 %br
