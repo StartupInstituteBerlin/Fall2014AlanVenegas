@@ -1,0 +1,3 @@
+#unstar{style: (@star.new_record? ? "display: none" : nil) }
+  = simple_form_for [@restaurant, @star], remote: true, method: :delete do |form|
+    = form.button :submit, 'Unstar', class: 'submit'

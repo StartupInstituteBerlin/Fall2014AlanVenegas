@@ -1,0 +1,3 @@
+#star{style: (@star.new_record? ? nil : "display: none") }
+  = simple_form_for [@restaurant, @star], remote: true, method: :create do |form|
+    = form.button :submit, 'Star', class: 'submit'
