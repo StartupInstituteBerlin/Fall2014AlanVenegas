@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'haml'
 gem 'devise'
 gem 'faker'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
