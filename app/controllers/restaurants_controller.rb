@@ -50,7 +50,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def destroy
-		restaurant = current_user.restaurants.find_by(id: params[id])
+		restaurant = current_user.restaurants.find_by(id: params[:id])
 		if !restaurant
 			flash[:alert] = "Only the owner can edit a restaurant"
 			redirect_to restaurant_path(restaurant)
